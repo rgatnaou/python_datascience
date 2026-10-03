@@ -1,19 +1,26 @@
-import math
+from typing import Any
 
-def NULL_not_found(object: any) -> int:
+
+def NULL_not_found(object: Any) -> int:
     typeOfParm = type(object)
-    if (object == None):
+
+    if object is None:
         print(f"Nothing: {object} {typeOfParm}")
-    elif (typeOfParm is not  str and math.isnan(object) ):
+
+    elif typeOfParm is float and object != object:
         print(f"Cheese: {object} {typeOfParm}")
-    elif (object == 0):
+
+    elif typeOfParm is int and object == 0:
         print(f"Zero: {object} {typeOfParm}")
-    elif (object == ""):
-        print(f"Empty: {object} {typeOfParm}")
-    elif (typeOfParm is bool):
+
+    elif typeOfParm is str and object == "":
+        print(f"Empty: {typeOfParm}")
+
+    elif typeOfParm is bool and object is False:
         print(f"Fake: {object} {typeOfParm}")
+
     else:
-        print(f"Type not Found")
+        print("Type not Found")
         return 1
+
     return 0
-                
